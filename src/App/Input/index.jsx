@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-export default function InputField({ changeQ }) {
+export default function InputField({ changeQ, q }) {
   const hangleInuput = (e) => {
     changeQ(e.target.value);
   };
@@ -14,6 +14,7 @@ export default function InputField({ changeQ }) {
           id=""
           aria-describedby="helpId"
           placeholder=""
+          value={q}
           onChange={hangleInuput}
         />
       </div>

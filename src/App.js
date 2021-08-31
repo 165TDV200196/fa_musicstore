@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Track from "./App/Track";
 import { AUTH_TOKEN, urlArtist } from "./App/constant";
+// gán token cho axios
 axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [q, setq] = useState();
   const [topTrack, setTopTrack] = useState(null);
   useEffect(() => {
+    // gọi data artist
     axios({
       method: "get",
       url: urlArtist,
@@ -27,7 +29,9 @@ function App() {
         console.log(error);
       });
   }, [q]);
+  //lấy id khi bấm vào artist
   const hangdleId = (e) => {
+    //gọi data topTrack của các artist
     axios({
       method: "get",
       url: `https://api.spotify.com/v1/artists/${e}/top-tracks`,
@@ -39,16 +43,16 @@ function App() {
         setTopTrack(ok.data.tracks);
       })
       .catch((error) => {
-        console.log(`https://api.spotify.com/v1/artists/${e}/top-tracks`);
+        console.log(error);
       });
   };
-  console.log(topTrack);
+  //lấy dữ liệu từ input nhập nào q
   const changeQ = (e) => {
     setq(e);
   };
   return (
     <div className="container">
-      <InputField changeQ={changeQ} />
+      <InputField changeQ={changeQ} q={q} />
       <Artist
         artist={Array.isArray(artist) ? artist : null}
         hangdleId={hangdleId}
