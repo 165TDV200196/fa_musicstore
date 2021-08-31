@@ -1,0 +1,63 @@
+.artist {
+  .content-artist {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+    .img {
+      // width: 350px;
+      // height: 350px;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .text-artist {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 20;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+      cursor: default;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.3) 70%,
+        rgba(0, 0, 0, 0.4) 80%,
+        rgba(0, 0, 0, 0.5) 90%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+      .name {
+        font-size: 1.2rem;
+      }
+      .popularity {
+      }
+      .content-text {
+        position: absolute;
+        padding: 1rem;
+        left: 0;
+        bottom: 0px;
+        display: flex;
+        flex-direction: column;
+        width: inherit;
+      }
+      .genres {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .tag {
+          padding: 0.1rem 0.4rem;
+          background-color: orange;
+          border-radius: 2px;
+          margin-left: 1rem;
+          margin-bottom: 0.2rem;
+        }
+      }
+    }
+  }
+}
