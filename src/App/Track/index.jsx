@@ -1,9 +1,10 @@
 import React from "react";
 import "./track.scss";
 export default function Track({ tracks }) {
+  console.log(tracks);
   return (
     <div className="track">
-      <div className="title-track">Son tung</div>
+      <div className="title-track">{tracks[0].artists[0]?.name}</div>
       <div className="content-track">
         <table>
           <tr>
